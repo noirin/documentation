@@ -4,13 +4,12 @@
 <concept outputclass="docs one-sidebar sidebar-first" id="ts_logs">
 	<title>Log Files</title>
 	<conbody>
-
-		<p>Usually when an issue arises in Eucalyptus, you can find a clue or trace or record that
-			suggests the nature of the problem either in the eucalyptus log files or in the system log
-			files. Assuming Eucalyptus is installed in root (/), the eucalyptus logs are located on each
-			machine hosting a component in the following directory:
-				<filepath>/var/log/eucalyptus/</filepath>. </p>
-
+		<p>Usually when an issue arises in Eucalyptus, you can find a pointer to the nature of the
+			problem either in the Eucalyptus log files or in the system log files. By default, the
+			Eucalyptus log files are stored in <filepath>/var/log/eucalyptus/</filepath> on each
+			machine that hosts a Eucalyptus component. If Eucalyptus is installed somewhere other
+			than the filesystem root (<filepath>/</filepath>), these logs will be stored in
+				<filepath>$EUCALYPTUS/var/log/eucalyptus/</filepath>. </p>
 		<p>Here are the relevant logs for each component:</p>
 		<section>
 			<title>CLC, Walrus, SC, and VMware Broker</title>
@@ -29,20 +28,33 @@
 				<li><filepath>cc.log</filepath></li>
 				<li><filepath>axis2c.log</filepath></li>
 				<li><filepath>httpd-cc_error_log</filepath></li>
-			</ul></section>
+			</ul>
+		</section>
 		<section>
 			<title>NC</title>
 			<ul>
-				<li><filepath>cc.log</filepath></li>
+				<li><filepath>nc.log</filepath></li>
 				<li><filepath>axis2c.log</filepath></li>
-				<li><filepath>httpd-cc_error_log</filepath></li>
+				<li><filepath>httpd-nc_error_log</filepath></li>
 				<li><filepath>euca_test_nc.log</filepath></li>
-			</ul></section>
+			</ul>
+		</section>
 		<section>
-			<title>System</title>
-			
-			<p>You might also find helpful information about the nature of an issue in the
-			system’s logs. In particular, search for clues in</p>
+			<title>Log Format</title>
+			<p>Eucalyptus logs now have a standard format, as follows:</p>
+			<codeblock>
+YYYY-MM-DD HH:MM:SS LEVEL PROCESS:THREAD loggingMethodOrClass     | the rest of the message ... 
+</codeblock>
+		</section>
+		<section>
+			<title>Configuring Logging</title>
+			<p>For the cluster controller and the node controller, log level is configured using the <code>LOGLEVEL</code> parameter in <filepath>eucalyptus.conf</filepath>. This parameter will be picked up dynamically when the value is changed in the config file, without requiring a restart of the component.</p>
+			<p>For all other components, the log level can be configured by passing an appropriate <code>--log-level</code> argument in the init script. It can also be dynamically changed using <code>euca-modify-property</code> to set an appropriate value for <code>troubleshooting.euca_log_level</code>. This takes precedence over the value specified in the init script. If no value is specified, the default <code>INFO</code> is used.</p>
+
+		</section>
+		<section>
+			<p>You might also find helpful information about the nature of an issue in the system
+				logs. In particular, the following logs may be relevant:</p>
 			<ul>
 				<li><filepath>/var/log/messages</filepath></li>
 				<li><filepath>/var/log/libvirt/</filepath></li>
