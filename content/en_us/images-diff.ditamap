@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map xml:lang="en">
+	<title>Eucalyptus <ph conref="shared/conrefs.dita#prod/version"/> Images Guide - Diff</title>
+	<topicmeta>
+		<copyright>
+			<copyryear year="2012"/>
+			<copyrholder>Eucalyptus Systems</copyrholder>
+		</copyright>
+		<prodinfo>
+			<prodname>Eucalyptus</prodname>
+			<vrmlist>
+				<vrm version="3.2.0"/>
+			</vrmlist>
+		</prodinfo>
+	</topicmeta>
+	<topicref href="ag/managing_resources.dita"/>
+	
+	<topicref href="shared/using_images.dita"/>
+	<topicref href="shared/images_kvm_lin.dita"/>
+	<topicref href="shared/images_lin.dita"/>
+	<topicref href="shared/images_vmw_lin.dita"/>
+	<topicref href="shared/images_bfebs.dita"/>
+		
+	<topicref href="shared/images_vmw_win.dita">
+		<topicref href="shared/images_vmw_win_baseos.dita"/>
+		<topicref href="shared/images_vmw_win_wis.dita"/>
+		<topicref href="shared/images_vmw_win_ad.dita"/>
+		<topicref href="shared/images_vmw_win_rdp.dita"/>
+		<topicref href="shared/images_vmw_win_sysprep.dita"/>
+		<topicref href="shared/images_vmw_win_convert.dita"/>
+		<topicref href="shared/images_vmw_win_add.dita"/>
+	</topicref>
+</map>
