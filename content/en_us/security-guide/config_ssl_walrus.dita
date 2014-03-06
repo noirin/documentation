@@ -1,35 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
 <task id="config_ssl_walrus">
-    <title>Configure SSL for Walrus</title>
-	<shortdesc>This topic details tasks to configure SSL for Walrus.</shortdesc>
-    <taskbody>
-    	<context>
-    		<note type="important">In a HA environment, repeat these tasks on the other Walrus.</note>
-    	</context>
-    </taskbody>
+	<title>Configure SSL for Walrus</title>
+	<taskbody>
+		<context>
+			<note type="important">In a HA environment, repeat these tasks on the other
+				Walrus.</note>
+		</context>
+	</taskbody>
 	<task id="config_ssl_walrus_keystore">
 		<title>Create a Keystore</title>
 		<taskbody>
 			<context>
-				<p>Eucalyptus uses a PKCS12-format keystore. If you are using a
-					certificate signed by a trusted root CA, perform the following steps.</p>
-				
+				<p>Eucalyptus uses a PKCS12-format keystore. If you are using a certificate signed
+					by a trusted root CA, perform the following steps.</p>
 			</context>
 			<steps>
 				<step>
-					<cmd>Enter the following command to convert your trusted certificate and key into an
-						appropriate format:</cmd>
+					<cmd>Enter the following command to convert your trusted certificate and key
+						into an appropriate format:</cmd>
 					<info>
 						<codeblock>openssl pkcs12 -export -in [YOURCERT.crt] -inkey [YOURKEY.key] \
  -out tmp.p12 -name [key_alias]</codeblock>
 					</info>
-					<stepresult>This command will request an export password, which is used
-						in the following steps.</stepresult>
+					<stepresult>This command will request an export password, which is used in the
+						following steps.</stepresult>
 				</step>
 				<step>
 					<cmd>Save a backup of the Eucalyptus keystore, at
-						<filepath>/var/lib/eucalyptus/keys/euca.p12</filepath>.</cmd>
+							<filepath>/var/lib/eucalyptus/keys/euca.p12</filepath>.</cmd>
 				</step>
 				<step>
 					<cmd>Import your keystore into the Eucalyptus keystore</cmd>
@@ -57,9 +56,8 @@ euca-modify-property -p \ bootstrap.webservices.ssl.server_password=[export_pass
 					</info>
 				</step>
 				<step>
-					<cmd>Restart Walrus by running <codeph>service eucalyptus-cloud
-						restart</codeph> or <codeph>/etc/init.d/eucalyptus-cloud
-							restart</codeph>.</cmd>
+					<cmd>Restart Walrus by running <codeph>service eucalyptus-cloud restart</codeph>
+						or <codeph>/etc/init.d/eucalyptus-cloud restart</codeph>.</cmd>
 				</step>
 			</steps>
 		</taskbody>
@@ -68,10 +66,9 @@ euca-modify-property -p \ bootstrap.webservices.ssl.server_password=[export_pass
 		<title>Optional: Redirect Requests</title>
 		<taskbody>
 			<context>
-				<p>Walrus listens for both SSL and non-SSL
-					connections on port 8773. If you have other tools that expect to
-					speak SSL on port 443, you should forward requests on that port
-					to port 8773. For example, the following iptables command can be
+				<p>Walrus listens for both SSL and non-SSL connections on port 8773. If you have
+					other tools that expect to speak SSL on port 443, you should forward requests on
+					that port to port 8773. For example, the following iptables command can be
 					used:</p>
 				<codeblock>iptables -t nat -A PREROUTING -p tcp --dport 443 -j REDIRECT --to-ports 8773</codeblock>
 			</context>

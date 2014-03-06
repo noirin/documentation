@@ -2,7 +2,7 @@
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="security_bp_access">
   <title> Authentication and Access Control</title>
-  <shortdesc>This topic describes best practices for Identity and Access Management and the
+  <shortdesc>This section describes best practices for Identity and Access Management and the
       <codeph>eucalyptus</codeph> account.</shortdesc>
   <conbody>
     <section>

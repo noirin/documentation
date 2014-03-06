@@ -2,7 +2,7 @@
 <!--This work by Eucalyptus Systems is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License. See the accompanying LICENSE file for more information.-->
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
-	<title>Manage Security</title>
+	<title>Security and Hardening Guide</title>
 	<topicmeta>
 		<copyright>
 			<copyryear year="2013"/>
@@ -39,6 +39,5 @@
 		<topicref href="install-guide/configuring_iptables.dita" copy-to="security-guide/security_iptables.dita"/>
 		<topicref href="shared/console_config_session_timeouts.dita"
 			copy-to="security-guide/security_session_timeouts.dita"/>
-		<topicref href="security-guide/security_task_ldap.dita"/>
 	</topicref>
 </map>

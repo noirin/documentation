@@ -6,8 +6,8 @@
     <taskbody>
         <context>
             <p>To configure managed mode for your cloud, follow the steps in <xref
-            	href="../install-guide/nw_managed.dita"/> in the Installation Guide.</p>
+                    href="../install-guide/nw_managed.dita"/> in the Installation Guide.</p>
         </context>
-        
+
     </taskbody>
 </task>
